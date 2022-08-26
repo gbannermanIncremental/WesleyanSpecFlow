@@ -10,7 +10,6 @@ stages:
   displayName: 'Deploy to the test environment'
   jobs:
   - job: RunUITests
-    dependsOn: Deploy
     displayName: 'Run UI tests'
     pool:
       vmImage: 'windows-2019'
@@ -33,5 +32,5 @@ stages:
         command: 'test'
         arguments: '--no-build --configuration $(buildConfiguration)'
         publishTestResults: true
-        projects: '$(System.DefaultWorkingDirectory)/*WesSpecFlowExample.csproj'
+        projects: '$(System.DefaultWorkingDirectory)/WesSpecFlowExample.Specs/WesSpecFlowExample.csproj'
 
