@@ -33,5 +33,5 @@ stages:
         command: 'test'
         arguments: '--no-build --configuration $(buildConfiguration)'
         publishTestResults: true
-        projects: '$(System.DefaultWorkingDirectory)/WesSpecFlowExample.Specs/WesSpecFlowExample.csproj'
+        projects: '$(System.DefaultWorkingDirectory)/WesleyanSpecFlow/WesSpecFlowExample.Specs/WesSpecFlowExample.csproj'
 
