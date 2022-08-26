@@ -7,13 +7,22 @@ variables:
 
 stages:
 - stage: 'Test'
-  displayName: 'Deploy to the test environment'
+  displayName: 'Run the Selenium tests'
   jobs:
   - job: RunUITests
     displayName: 'Run UI tests'
     pool:
       vmImage: 'windows-2019'
+
+
+
     steps: 
+    - task: DotNetCoreCLI@2
+      displayName: Build
+      inputs:
+        command: build
+        projects: '**/*.csproj'
+        arguments: '--configuration $(buildConfiguration)' # Update this to match your need
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
